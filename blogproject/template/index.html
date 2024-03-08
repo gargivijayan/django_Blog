@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container container-flex" style="display: flex;">
+    <main role="main">
+
+        <article class="article-featured">
+            <img src="{% static 'images/life.jpg' %}"
+                alt="simple white desk on a white wall with a plant on the far right side" class="article-image">
+        </article>
+        {% for article in hello %}
+        <article class="article-recent">
+            <div class="article-recent-main">
+                <h2 class="article-title">{{ article.title }}</h2>
+                <p class="article-body">{{ article.description }}</p>
+                <a href="/content/{{article.id}}" class="article-read-more">CONTINUE READING</a>
+            </div>
+            <div class="article-recent-secondary">
+                <img src="{{ article.image.url }}" alt="two dumplings on a wood plate with chopsticks" class="article-image">
+                <p class="article-info"></p>
+            </div>
+        </article>
+        {% endfor %}
+    </main>    
+    <aside class="sidebar">
+        <div class="sidebar-widget">
+            <h2 class="widget-title">ABOUT ME</h2>
+            <img src="{% static 'images/about-me.jpg' %}" alt="john doe" class="widget-image">
+            <p class="widget-body">I find life better, and I'm happier, when things are nice and simple.</p>
+        </div>
+
+    </aside>
+
+
+
+</div>
+
+
+
+
+{% endblock %}

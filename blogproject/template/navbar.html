@@ -1,0 +1,14 @@
+
+
+{% block content %}
+
+<nav>
+    <ul>
+        <li><a class="current-page" href="/">Home</a></li>
+        <li><a href="{% url 'about' %}">About me</a></li>
+        <li><a href="{% url 'add' %}">Add post</a></li>
+        <li><a href="{% url 'recent-posts' %}">Recent posts</a></li>
+    </ul>
+</nav>
+
+{% endblock %}

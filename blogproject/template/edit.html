@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<div>
+    {% for msg in messages %}
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div style="text-align: center;">
+        {{ msg}}
+        </div>
+        <div>
+            <img src="{% static './images/images2-removebg-preview.png '%}"  alt="" style="height: 100px;">
+        </div> 
+    </div>
+   
+    {% endfor %}
+</div>
+
+
+
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+        <table class="" style="width: 30rem !important;text-align: center">
+            <tr>
+                <td class="fs-3"><label style="font-family:'Teko'; font-size: 40px; text-align: center;color: rgb(5, 5, 78);">Title</label></td>
+                <td><input type="text" class="form-control" name="title" value="{{content.title}}"></td>
+            </tr>
+            <tr>
+                <td class="fs-3"><label style="font-family:'Teko'; font-size: 40px;color: rgb(5, 5, 78);">New Image</label></td>
+                <td><input type="file"  class="form-control" name="image"></td>
+            </tr>
+            <tr>
+                <td class="fs-3"><label  style="font-family:'Teko'; font-size: 40px;color: rgb(5, 5, 78);">Description</label></td>
+                <td><textarea input type="text"  class="form-control" name="description" value=""rows="7" cols="30">{{content.description}}</textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="">
+                    <button type="submit" class="btn btn-info d-block m-auto mt-5">SUBMIT</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+{% endblock %}

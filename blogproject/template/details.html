@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<article class="article-recent">
+    <div class="article-recent-main">
+        <h2 class="article-title">{{ content.title }}</h2>
+        <p class="article-body">{{ content.description }}</p>
+        
+        <a href="{% url 'edit' id=content.id %}" class="btn btn-success">EDIT</a>
+        <a href="{% url 'delete' id=content.id %}" class="btn btn-danger">DELETE</a>
+
+    
+
+
+
+    </div>
+    <div class="article-recent-secondary">
+        <img src="{{ content.image.url }}" alt="two dumplings on a wood plate with chopsticks" class="article-image">
+        <p class="article-info"></p>
+        
+    </div>
+    
+
+
+</article>
+
+
+
+{% endblock %}
